@@ -11,7 +11,7 @@ public class ExamplesRunner {
 //        run(new DropDownListDemo(), 475, 425);
 //        run(new FlowLayoutDemo(), 475, 425);
 //        run(new GridLayoutDemo(), 475, 425);
-        run(new IconsDemo(), 475, 425);
+//        run(new IconsDemo(), 475, 425);
 //        run(new MiniEditor(), 475, 425);
 //        run(new RadioButtonsDemo(), 475, 425);
 //        run(new SwingBarebones(), 475, 425);
