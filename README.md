@@ -1,3 +1,4 @@
+# Simple Minesweeper Implementation as Java Swing Exercise
 # pl.sda.jwwa5.lab7homework
 In progress
 1. Mine button listener
