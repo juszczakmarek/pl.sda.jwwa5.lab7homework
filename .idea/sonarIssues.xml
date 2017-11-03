@@ -23,6 +23,11 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/MinesweeperRunner.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/gui/MainPane.java">
           <value>
             <set />
@@ -129,6 +134,16 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/SwingConsole.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/service/DifficultyLeve.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/service/DifficultyLevel.java">
           <value>
             <set />
           </value>
