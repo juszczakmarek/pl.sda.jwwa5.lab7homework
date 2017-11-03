@@ -3,7 +3,7 @@ package pl.sda.wwa5.homework.myExamples.service;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class MineFieldCreator {
+public class MinefieldCreator {
 
     private int mineFieldXdimension;
     private int mineFieldYdimension;
@@ -12,14 +12,14 @@ public class MineFieldCreator {
     private int minesLeft;
     private ArrayList<MinefieldSingleField> mineField;
 
-    public MineFieldCreator(int mineFieldXdimension, int mineFieldYdimension, DifficultyLevel difficultyLevel) {
+    public MinefieldCreator(int mineFieldXdimension, int mineFieldYdimension, DifficultyLevel difficultyLevel) {
         this.mineFieldXdimension = mineFieldXdimension;
         this.mineFieldYdimension = mineFieldYdimension;
         this.numberOfFields = mineFieldXdimension*mineFieldYdimension;
         this.numberOfMines = difficultyLevel.getMinesNumber();
         this.minesLeft = this.numberOfMines;
         this.mineField = createMinefield(this.numberOfFields, this.numberOfMines);
-        this.mineField = updateMinefieldNeighbouringMines(this.mineField);
+        this.mineField = updateMinefieldWithNeighbouringMines(this.mineField);
     }
 
     private ArrayList<MinefieldSingleField> createMinefield(int localNumberOfFields, int localNumberOfMines) {
@@ -33,10 +33,21 @@ public class MineFieldCreator {
         return localMineField;
     }
 
-    private ArrayList<MinefieldSingleField> updateMinefieldNeighbouringMines(ArrayList<MinefieldSingleField> mineField) {
+    private ArrayList<MinefieldSingleField> updateMinefieldWithNeighbouringMines(ArrayList<MinefieldSingleField> mineField) {
         ArrayList<MinefieldSingleField> localMineField = mineField;
 
+        for (MinefieldSingleField currentField : localMineField) {
+            if (currentField.hasMine()) {
+                if (localMineField.indexOf(currentField) < this.mineFieldXdimension ) {
 
+                }
+
+                if ((localMineField.size()-localMineField.indexOf(currentField))<this.mineFieldXdimension) {
+
+                }
+            }
+
+        }
 
         return localMineField;
     }
@@ -63,9 +74,9 @@ public class MineFieldCreator {
         int counter = 0;
         for (MinefieldSingleField currentField : this.mineField) {
             if (counter%this.mineFieldXdimension==0) {
-                finalString+="\n" + currentField.toString();
+                finalString+="\n(" + mineField.indexOf(currentField) + ")" + currentField.toString();
             } else {
-                finalString += currentField.toString() + " ";
+                finalString += "(" + mineField.indexOf(currentField) + ")" + currentField.toString() + " ";
             }
             ++counter;
         }

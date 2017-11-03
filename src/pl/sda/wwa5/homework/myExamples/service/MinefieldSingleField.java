@@ -13,9 +13,8 @@ public class MinefieldSingleField {
         return ++this.neighbouringMines;
     }
 
-    public MinefieldSingleField updateNieghbours(MinefieldSingleField thisField) {
-
-        return null;
+    public boolean hasMine() {
+        return hasMine;
     }
 
     @Override
