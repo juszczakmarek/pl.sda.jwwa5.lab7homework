@@ -10,8 +10,7 @@ public class MinesweeperRunner {
 
     public static void main(String[] args) {
 //        run(new MineFieldGUI(10,10,0),475, 425);
-        MineFieldCreator mineFieldCreator = new MineFieldCreator(10,10, DifficultyLevel.EASY);
-
-
+        MineFieldCreator mineFieldCreator = new MineFieldCreator(4,4, DifficultyLevel.EASY);
+        System.out.println(mineFieldCreator.toString());
     }
 }

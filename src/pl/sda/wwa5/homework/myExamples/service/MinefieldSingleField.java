@@ -18,4 +18,8 @@ public class MinefieldSingleField {
         return null;
     }
 
+    @Override
+    public String toString() {
+        return "[hasMine=" + hasMine +",covered=" + covered + ",neighbouringMines=" + neighbouringMines + "]";
+    }
 }
