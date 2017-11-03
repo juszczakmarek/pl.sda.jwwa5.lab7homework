@@ -7,6 +7,6 @@ import static pl.sda.wwa5.homework.myExamples.gui.MinesweeperWindowsCreator.run;
 public class Main {
 
     public static void main(String[] args) {
-        run(new MineField(10,10,0),475, 425);
+        run(new MineFieldGUI(10,10,0),475, 425);
     }
 }

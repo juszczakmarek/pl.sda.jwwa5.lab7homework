@@ -108,6 +108,16 @@
             <set />
           </value>
         </entry>
+        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MineFieldButton.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MineFieldGUI.java">
+          <value>
+            <set />
+          </value>
+        </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MineSweeperGameWindow.java">
           <value>
             <set />
@@ -119,6 +129,21 @@
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/SwingConsole.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/service/MineFieldCreator.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/service/MineFieldService.java">
+          <value>
+            <set />
+          </value>
+        </entry>
+        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/service/MinefieldSingleField.java">
           <value>
             <set />
           </value>
