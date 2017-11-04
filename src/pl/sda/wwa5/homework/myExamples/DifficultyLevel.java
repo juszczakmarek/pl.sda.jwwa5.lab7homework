@@ -1,4 +1,4 @@
-package pl.sda.wwa5.homework.myExamples.service;
+package pl.sda.wwa5.homework.myExamples;
 
 public enum DifficultyLevel {
     EASY(5),
@@ -11,7 +11,7 @@ public enum DifficultyLevel {
         this.mines = mines;
     }
 
-    int getMinesNumber() {
+    public int getMinesNumber() {
         return mines;
     }
 }
