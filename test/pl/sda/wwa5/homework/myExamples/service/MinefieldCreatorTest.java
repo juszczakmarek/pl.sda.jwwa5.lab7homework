@@ -2,11 +2,13 @@ package pl.sda.wwa5.homework.myExamples.service;
 
 import org.junit.Before;
 import org.junit.Test;
+import pl.sda.wwa5.homework.myExamples.SingleField;
+
+import java.util.List;
 
 import static org.junit.Assert.*;
 
 public class MinefieldCreatorTest {
-
     private MinefieldCreator minefieldCreator;
 
     @Before
@@ -40,6 +42,12 @@ public class MinefieldCreatorTest {
         int mines;
         mines=minefieldCreator.updateNumberOfMines(10);
         assertEquals(mines,9);
+    }
+
+    @Test
+    public void createMinefield() throws Exception {
+        List<SingleField> minefield = minefieldCreator.createMinefield(5,5,10);
+        assertEquals(minefield.size(),25);
     }
 
 }
