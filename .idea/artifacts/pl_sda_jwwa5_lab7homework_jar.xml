@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="pl.sda.jwwa5.lab7homework:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/pl_sda_jwwa5_lab7homework_jar</output-path>
+    <root id="archive" name="pl.sda.jwwa5.lab7homework.jar">
+      <element id="module-output" name="pl.sda.jwwa5.lab7homework" />
+    </root>
+  </artifact>
+</component>
