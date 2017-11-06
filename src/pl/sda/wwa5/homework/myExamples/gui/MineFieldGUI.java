@@ -24,22 +24,55 @@ public class MineFieldGUI extends JFrame {
     }
 
     private void generateMinefieldGUI(int fieldsNumber, int level) {
-        Container mineFieldContainer = getContentPane();
-        mineFieldContainer.setLayout(new GridLayout(this.mineFieldXdimension, this.mineFieldYdimension));
+        Container mineFieldLabels;
+        Container mineFieldButtons;
 
         ImageIcon icon = new ImageIcon("images/mine.png");
         icon = resizeIcon(icon,30,30);
 
+//        mineFieldLabels = createMinefieldLabels(fieldsNumber,level,icon, this.mineFieldXdimension, this.mineFieldYdimension);
+        mineFieldButtons = createMinefieldButtons(fieldsNumber,level,icon, this.mineFieldXdimension, this.mineFieldYdimension);
+
+    }
+
+    private Container createMinefieldLabels(int fieldsNumber, int level, Icon icon, int mineFieldXdimension, int mineFieldYdimension) {
+        Container mineFieldContainer = getContentPane();
+        mineFieldContainer.setLayout(new GridLayout(mineFieldXdimension, mineFieldYdimension));
 
         for (int i=1;i<=numberOfFields;i++) {
+            JLabel jLabel = new JLabel();
+            jLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+
             if (minefield.getMinefield().get(i-1).hasMine()) {
-                JButton jButton = new JButton(icon);
-                mineFieldContainer.add(jButton);
+                jLabel.setIcon(icon);
             } else {
-                String jButtonLabel = String.valueOf(minefield.getMinefield().get(i-1).getNeighbouringMines());
-                mineFieldContainer.add(new JButton(jButtonLabel));
+                String jLabelText = String.valueOf(minefield.getMinefield().get(i-1).getNeighbouringMines());
+                jLabel.setText(jLabelText);
             }
+            mineFieldContainer.add(jLabel);
+
         }
+        return mineFieldContainer;
+    }
+
+    private Container createMinefieldButtons(int fieldsNumber, int level, Icon icon, int mineFieldXdimension, int mineFieldYdimension) {
+        Container mineFieldContainer = getContentPane();
+        mineFieldContainer.setLayout(new GridLayout(mineFieldXdimension, mineFieldYdimension));
+
+        for (int i=1;i<=numberOfFields;i++) {
+            JButton jButton = new JButton();
+            jButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+
+            if (minefield.getMinefield().get(i-1).hasMine()) {
+                //jButton.setIcon(icon);
+            } else {
+                String jLabelText = String.valueOf(minefield.getMinefield().get(i-1).getNeighbouringMines());
+                //jButton.setText(jLabelText);
+            }
+            mineFieldContainer.add(jButton);
+            jButton.addActionListener(new MinefieldButtonAction(minefield.getMinefield().get(i-1),jButton));
+        }
+        return mineFieldContainer;
     }
 
     private static ImageIcon resizeIcon(ImageIcon icon, int resizedWidth, int resizedHeight) {
