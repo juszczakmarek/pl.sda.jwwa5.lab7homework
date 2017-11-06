@@ -3,8 +3,10 @@ package pl.sda.wwa5.homework.myExamples.gui;
 import pl.sda.wwa5.homework.myExamples.DifficultyLevel;
 import pl.sda.wwa5.homework.myExamples.Minefield;
 
+import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
+import java.io.IOException;
 
 public class MineFieldGUI extends JFrame {
 
@@ -27,11 +29,10 @@ public class MineFieldGUI extends JFrame {
         Container mineFieldLabels;
         Container mineFieldButtons;
 
-        ImageIcon icon = new ImageIcon("images/mine.png");
-        icon = resizeIcon(icon,30,30);
+
 
 //        mineFieldLabels = createMinefieldLabels(fieldsNumber,level,icon, this.mineFieldXdimension, this.mineFieldYdimension);
-        mineFieldButtons = createMinefieldButtons(fieldsNumber,level,icon, this.mineFieldXdimension, this.mineFieldYdimension);
+        mineFieldButtons = createMinefieldButtons(fieldsNumber,level, this.mineFieldXdimension, this.mineFieldYdimension);
 
     }
 
@@ -55,22 +56,28 @@ public class MineFieldGUI extends JFrame {
         return mineFieldContainer;
     }
 
-    private Container createMinefieldButtons(int fieldsNumber, int level, Icon icon, int mineFieldXdimension, int mineFieldYdimension) {
+    private Container createMinefieldButtons(int fieldsNumber, int level, int mineFieldXdimension, int mineFieldYdimension) {
         Container mineFieldContainer = getContentPane();
         mineFieldContainer.setLayout(new GridLayout(mineFieldXdimension, mineFieldYdimension));
 
         for (int i=1;i<=numberOfFields;i++) {
-            JButton jButton = new JButton();
-            jButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+            JToggleButton button = new JToggleButton();
+            button.setModel(new MineFieldButton());
+//            button.setIcon(new ImageIcon("images/blank.png"));
+            button.setSelectedIcon(resizeIcon(new ImageIcon("images/mine.png"),30,30));
+//            button.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/Blank.png"))));
 
-            if (minefield.getMinefield().get(i-1).hasMine()) {
-                //jButton.setIcon(icon);
-            } else {
-                String jLabelText = String.valueOf(minefield.getMinefield().get(i-1).getNeighbouringMines());
-                //jButton.setText(jLabelText);
-            }
-            mineFieldContainer.add(jButton);
-            jButton.addActionListener(new MinefieldButtonAction(minefield.getMinefield().get(i-1),jButton));
+//            JButton jButton = new JButton();
+//            jButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
+//
+//            if (minefield.getMinefield().get(i-1).hasMine()) {
+//                //jButton.setIcon(icon);
+//            } else {
+//                String jLabelText = String.valueOf(minefield.getMinefield().get(i-1).getNeighbouringMines());
+//                //jButton.setText(jLabelText);
+//            }
+            mineFieldContainer.add(button);
+            button.addActionListener(new MinefieldButtonAction(minefield.getMinefield().get(i-1),button," images/mine.png"));
         }
         return mineFieldContainer;
     }
@@ -80,5 +87,7 @@ public class MineFieldGUI extends JFrame {
         Image resizedImage = img.getScaledInstance(resizedWidth, resizedHeight,  java.awt.Image.SCALE_SMOOTH);
         return new ImageIcon(resizedImage);
     }
+
+
 
 }
