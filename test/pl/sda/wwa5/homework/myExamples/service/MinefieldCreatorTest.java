@@ -4,6 +4,7 @@ import org.junit.Before;
 import org.junit.Test;
 import pl.sda.wwa5.homework.myExamples.SingleField;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -48,6 +49,52 @@ public class MinefieldCreatorTest {
     public void createMinefield() throws Exception {
         List<SingleField> minefield = minefieldCreator.createMinefield(5,5,10);
         assertEquals(minefield.size(),25);
+    }
+
+    @Test
+    public void neighbourExist() {
+        int fieldIndex=14;
+        int verifiedFieldIndex;
+        int xDimension=5;
+        int yDimension=5;
+
+        List<Integer> fieldParameters = new ArrayList<>();
+
+        fieldParameters.add(5);
+        fieldParameters.add(5);
+        fieldParameters.add(14);
+
+        verifiedFieldIndex=fieldIndex-xDimension-1;
+        minefieldCreator.neighbourExist(fieldParameters,verifiedFieldIndex);
+//        assertFalse(minefieldCreator.neighbourExist(xDimension,yDimension,fieldIndex,verifiedFieldIndex));
+
+        verifiedFieldIndex=fieldIndex-xDimension;
+        minefieldCreator.neighbourExist(fieldParameters,verifiedFieldIndex);
+//        assertFalse(minefieldCreator.neighbourExist(xDimension,yDimension,fieldIndex,verifiedFieldIndex));
+
+        verifiedFieldIndex=fieldIndex-xDimension+1;
+        minefieldCreator.neighbourExist(fieldParameters,verifiedFieldIndex);
+//        assertFalse(minefieldCreator.neighbourExist(xDimension,yDimension,fieldIndex,verifiedFieldIndex));
+
+        verifiedFieldIndex=fieldIndex+1;
+        minefieldCreator.neighbourExist(fieldParameters,verifiedFieldIndex);
+//        assertTrue(minefieldCreator.neighbourExist(xDimension,yDimension,fieldIndex,verifiedFieldIndex));
+
+        verifiedFieldIndex=fieldIndex+xDimension+1;
+        minefieldCreator.neighbourExist(fieldParameters,verifiedFieldIndex);
+//        assertTrue(minefieldCreator.neighbourExist(xDimension,yDimension,verifiedFieldIndex));
+
+        verifiedFieldIndex=fieldIndex+xDimension;
+        minefieldCreator.neighbourExist(fieldParameters,verifiedFieldIndex);
+//        assertTrue(minefieldCreator.neighbourExist(xDimension,yDimension,verifiedFieldIndex));
+
+        verifiedFieldIndex=fieldIndex+xDimension-1;
+        minefieldCreator.neighbourExist(fieldParameters,verifiedFieldIndex);
+//        assertFalse(minefieldCreator.neighbourExist(xDimension,yDimension,verifiedFieldIndex));
+
+        verifiedFieldIndex=fieldIndex-1;
+        minefieldCreator.neighbourExist(fieldParameters,verifiedFieldIndex);
+//        assertFalse(minefieldCreator.neighbourExist(xDimension,yDimension,verifiedFieldIndex));
     }
 
 }

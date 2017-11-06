@@ -48,88 +48,127 @@ public class MinefieldCreator {
         return ((minesLeft>0) && random.nextBoolean());
     }
 
+    private int topLeft(List<Integer> parametersToBeVerified) {
+        int xDimension = parametersToBeVerified.get(0);
+        int fieldIndex = parametersToBeVerified.get(2);
+        return fieldIndex-xDimension-1;
+    }
+
+    private int top(List<Integer> parametersToBeVerified) {
+        int xDimension = parametersToBeVerified.get(0);
+        int fieldIndex = parametersToBeVerified.get(2);
+        return fieldIndex-xDimension;
+    }
+
+    private int topRight(List<Integer> parametersToBeVerified) {
+        int xDimension = parametersToBeVerified.get(0);
+        int fieldIndex = parametersToBeVerified.get(2);
+        return fieldIndex-xDimension+1;
+    }
+
+    private int right(List<Integer> parametersToBeVerified) {
+        int xDimension = parametersToBeVerified.get(0);
+        int fieldIndex = parametersToBeVerified.get(2);
+        return fieldIndex+1;
+    }
+
+    private int bottomRight(List<Integer> parametersToBeVerified) {
+        int xDimension = parametersToBeVerified.get(0);
+        int fieldIndex = parametersToBeVerified.get(2);
+        return fieldIndex+xDimension+1;
+    }
+
+    private int bottom(List<Integer> parametersToBeVerified) {
+        int xDimension = parametersToBeVerified.get(0);
+        int fieldIndex = parametersToBeVerified.get(2);
+        return fieldIndex+xDimension;
+    }
+
+    private int bottomLeft(List<Integer> parametersToBeVerified) {
+        int xDimension = parametersToBeVerified.get(0);
+        int fieldIndex = parametersToBeVerified.get(2);
+        return fieldIndex+xDimension-1;
+    }
+
+    private int left(List<Integer> parametersToBeVerified) {
+        int fieldIndex = parametersToBeVerified.get(2);
+        return fieldIndex-1;
+    }
+
     public List<Integer> checkNieghbours(int xDimension, int yDimension, int fieldIndex) {
         List<Integer> neigbhoursList = new ArrayList<>();
-        int topLeftCorner = 0;
-        int topRightCorner = xDimension-1;
-        int bottomLeftCorner = xDimension*yDimension-xDimension;
-        int bottomRightCorner = xDimension*yDimension-1;
+        List<Integer> fieldParameters = new ArrayList<>();
 
-        if (fieldIndex==topLeftCorner) { //top-left corner
-            neigbhoursList.add(fieldIndex+1);
-            neigbhoursList.add(fieldIndex+xDimension);
-            neigbhoursList.add(fieldIndex+xDimension+1);
-            return neigbhoursList;
+        fieldParameters.add(xDimension);
+        fieldParameters.add(yDimension);
+        fieldParameters.add(fieldIndex);
+
+
+        if (neighbourExist(fieldParameters,topLeft(fieldParameters))) {
+            neigbhoursList.add(topLeft(fieldParameters));
         }
 
-        if (fieldIndex==topRightCorner) {//top-right corner
-            neigbhoursList.add(fieldIndex-1);
-            neigbhoursList.add(fieldIndex+xDimension);
-            neigbhoursList.add(fieldIndex+xDimension-1);
-            return neigbhoursList;
+        if (neighbourExist(fieldParameters,top(fieldParameters))) {
+            neigbhoursList.add(top(fieldParameters));
         }
 
-        if (fieldIndex==bottomLeftCorner) {//bottom-left corner
-            neigbhoursList.add(fieldIndex+1);
-            neigbhoursList.add(fieldIndex-xDimension);
-            neigbhoursList.add(fieldIndex-xDimension+1);
-            return neigbhoursList;
+        if (neighbourExist(fieldParameters,topRight(fieldParameters))) {
+            neigbhoursList.add(topRight(fieldParameters));
         }
 
-        if (fieldIndex==bottomRightCorner) {//bottom-right corner
-            neigbhoursList.add(fieldIndex-1);
-            neigbhoursList.add(fieldIndex-xDimension);
-            neigbhoursList.add(fieldIndex-xDimension-1);
-            return neigbhoursList;
+        if (neighbourExist(fieldParameters,right(fieldParameters))) {
+            neigbhoursList.add(right(fieldParameters));
         }
 
-        if (fieldIndex>topLeftCorner && fieldIndex<topRightCorner) { //top border excluding corners
-            neigbhoursList.add(fieldIndex-1);
-            neigbhoursList.add(fieldIndex+xDimension-1);
-            neigbhoursList.add(fieldIndex+xDimension);
-            neigbhoursList.add(fieldIndex+xDimension+1);
-            neigbhoursList.add(fieldIndex+1);
-            return neigbhoursList;
+        if (neighbourExist(fieldParameters,bottomRight(fieldParameters))) {
+            neigbhoursList.add(bottomRight(fieldParameters));
         }
 
-        if (fieldIndex>bottomLeftCorner && fieldIndex<bottomRightCorner) { //bottom border excluding corners
-            neigbhoursList.add(fieldIndex-1);
-            neigbhoursList.add(fieldIndex-xDimension-1);
-            neigbhoursList.add(fieldIndex-xDimension);
-            neigbhoursList.add(fieldIndex-xDimension+1);
-            neigbhoursList.add(fieldIndex+1);
-            return neigbhoursList;
+        if (neighbourExist(fieldParameters,bottom(fieldParameters))) {
+            neigbhoursList.add(bottom(fieldParameters));
         }
 
-        if (fieldIndex%xDimension==0 && fieldIndex>topLeftCorner && fieldIndex<bottomLeftCorner) { //left border except corners
-            neigbhoursList.add(fieldIndex-xDimension);
-            neigbhoursList.add(fieldIndex-xDimension+1);
-            neigbhoursList.add(fieldIndex+1);
-            neigbhoursList.add(fieldIndex+xDimension);
-            neigbhoursList.add(fieldIndex+xDimension+1);
-            return neigbhoursList;
+        if (neighbourExist(fieldParameters,bottomLeft(fieldParameters))) {
+            neigbhoursList.add(bottomLeft(fieldParameters));
         }
 
-        if ((fieldIndex-xDimension+1)%xDimension==0 && fieldIndex>topRightCorner && fieldIndex<bottomRightCorner) { //right border except corners
-            neigbhoursList.add(fieldIndex-xDimension);
-            neigbhoursList.add(fieldIndex-xDimension-1);
-            neigbhoursList.add(fieldIndex-1);
-            neigbhoursList.add(fieldIndex+xDimension-1);
-            neigbhoursList.add(fieldIndex+xDimension);
-            return neigbhoursList;
+        if (neighbourExist(fieldParameters,left(fieldParameters))) {
+            neigbhoursList.add(left(fieldParameters));
         }
 
-        neigbhoursList.add(fieldIndex-xDimension-1);
-        neigbhoursList.add(fieldIndex-xDimension);
-        neigbhoursList.add(fieldIndex-xDimension+1);
-        neigbhoursList.add(fieldIndex+1);
-        neigbhoursList.add(fieldIndex+xDimension+1);
-        neigbhoursList.add(fieldIndex+xDimension);
-        neigbhoursList.add(fieldIndex+xDimension-1);
-        neigbhoursList.add(fieldIndex-1);
         return neigbhoursList;
     }
 
+    public boolean neighbourExist(List<Integer> parametersToBeVerified, int verifiedFieldIndex) {
+
+        int xDimension = parametersToBeVerified.get(0);
+        int yDimension = parametersToBeVerified.get(1);
+        int fieldIndex = parametersToBeVerified.get(2);
+
+        int verifiedFieldRowNumber=verifiedFieldIndex/xDimension;
+        int verifiedFieldColNumber=verifiedFieldIndex-(verifiedFieldRowNumber*xDimension);
+
+        int fieldRowNumber=fieldIndex/xDimension;
+        int fieldColNumber=fieldIndex-(fieldRowNumber*xDimension);
+
+        if (verifiedFieldIndex<0) {
+            return false;
+        }
+
+        if (Math.abs(fieldRowNumber-verifiedFieldRowNumber)>1) {
+            return false;
+        }
+
+        if (Math.abs(fieldColNumber-verifiedFieldColNumber)>1) {
+            return false;
+        }
+
+        if (verifiedFieldRowNumber>=xDimension) {
+            return false;
+        }
+
+        return true;
+    }
 
     public int updateNumberOfMines(int numberOfMines) {
         if (numberOfMines>0) {
