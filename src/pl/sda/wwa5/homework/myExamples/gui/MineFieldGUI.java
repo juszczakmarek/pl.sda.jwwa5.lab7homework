@@ -63,21 +63,9 @@ public class MineFieldGUI extends JFrame {
         for (int i=1;i<=numberOfFields;i++) {
             JToggleButton button = new JToggleButton();
             button.setModel(new MineFieldButton());
-//            button.setIcon(new ImageIcon("images/blank.png"));
-            button.setSelectedIcon(resizeIcon(new ImageIcon("images/mine.png"),30,30));
-//            button.setIcon(new ImageIcon(ImageIO.read(getClass().getResource("/Blank.png"))));
-
-//            JButton jButton = new JButton();
-//            jButton.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
-//
-//            if (minefield.getMinefield().get(i-1).hasMine()) {
-//                //jButton.setIcon(icon);
-//            } else {
-//                String jLabelText = String.valueOf(minefield.getMinefield().get(i-1).getNeighbouringMines());
-//                //jButton.setText(jLabelText);
-//            }
+//            button.setSelectedIcon(resizeIcon(new ImageIcon("./src/images/mine.png"),30,30));
             mineFieldContainer.add(button);
-            button.addActionListener(new MinefieldButtonAction(minefield.getMinefield().get(i-1),button," images/mine.png"));
+            button.addActionListener(new MinefieldButtonAction(minefield.getMinefield().get(i-1),button,"./src/images/mine.png"));
         }
         return mineFieldContainer;
     }

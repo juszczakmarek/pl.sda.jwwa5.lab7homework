@@ -11,12 +11,13 @@ public class MinesweeperRunner {
 
     public static void main(String[] args) {
 
-        int xDimension=4;
-        int yDimension=4;
         DifficultyLevel difficultyLevel = DifficultyLevel.EASY;
+        int xDimension=5;
+        int yDimension=5;
+        int sizeMultiplier=50;
         Minefield minefield = new Minefield(xDimension,yDimension, DifficultyLevel.EASY, new MinefieldCreator());
 
-        run(new MineFieldGUI(xDimension,yDimension,difficultyLevel, minefield),475, 425);
+        run(new MineFieldGUI(xDimension,yDimension,difficultyLevel, minefield),xDimension*sizeMultiplier, yDimension*sizeMultiplier);
 
     }
 }
