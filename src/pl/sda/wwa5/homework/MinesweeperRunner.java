@@ -2,6 +2,7 @@ package pl.sda.wwa5.homework;
 
 import pl.sda.wwa5.homework.myExamples.DifficultyLevel;
 import pl.sda.wwa5.homework.myExamples.DifficultySettings;
+import pl.sda.wwa5.homework.myExamples.dao.ImageIconDao;
 import pl.sda.wwa5.homework.myExamples.minefield.Minefield;
 import pl.sda.wwa5.homework.myExamples.gui.MineFieldGUI;
 import pl.sda.wwa5.homework.myExamples.service.MinefieldCreator;
@@ -14,6 +15,7 @@ public class MinesweeperRunner {
 
         DifficultySettings difficultySettings = new DifficultySettings(DifficultyLevel.HARD);
         Minefield minefield = new Minefield(difficultySettings, new MinefieldCreator());
+
 
         int sizeMultiplier=45;
         run(new MineFieldGUI(difficultySettings, minefield),difficultySettings.getxDimension()*sizeMultiplier,

@@ -1,6 +1,7 @@
 package pl.sda.wwa5.homework.myExamples.gui;
 
 import pl.sda.wwa5.homework.myExamples.DifficultySettings;
+import pl.sda.wwa5.homework.myExamples.dao.ImageIconDao;
 import pl.sda.wwa5.homework.myExamples.minefield.Minefield;
 
 import javax.swing.*;
@@ -13,6 +14,7 @@ public class MineFieldGUI extends JFrame {
     private int numberOfFields;
     private int level;
     private Minefield minefield;
+    ImageIconDao mineIconDao = new ImageIconDao("./src/images/mine.png",30);
 
     public MineFieldGUI(DifficultySettings difficultySettings, Minefield minefield) throws HeadlessException {
         this.mineFieldXdimension = difficultySettings.getxDimension();
@@ -24,37 +26,14 @@ public class MineFieldGUI extends JFrame {
     }
 
     private void generateMinefieldGUI(int fieldsNumber, int level) {
-        Container mineFieldLabels;
-        Container mineFieldButtons;
-
-
-
-//        mineFieldLabels = createMinefieldLabels(fieldsNumber,level,icon, this.mineFieldXdimension, this.mineFieldYdimension);
-        mineFieldButtons = createMinefieldButtons(fieldsNumber,level, this.mineFieldXdimension, this.mineFieldYdimension);
+//        Container mineFieldLabels;
+//        Container mineFieldButtons;
+        createMinefieldButtons(fieldsNumber,level, this.mineFieldXdimension, this.mineFieldYdimension);
 
     }
 
-    private Container createMinefieldLabels(int fieldsNumber, int level, Icon icon, int mineFieldXdimension, int mineFieldYdimension) {
-        Container mineFieldContainer = getContentPane();
-        mineFieldContainer.setLayout(new GridLayout(mineFieldXdimension, mineFieldYdimension));
-
-        for (int i=1;i<=numberOfFields;i++) {
-            JLabel jLabel = new JLabel();
-            jLabel.setBorder(BorderFactory.createLineBorder(Color.BLACK,1));
-
-            if (minefield.getMinefield().get(i-1).hasMine()) {
-                jLabel.setIcon(icon);
-            } else {
-                String jLabelText = String.valueOf(minefield.getMinefield().get(i-1).getNeighbouringMines());
-                jLabel.setText(jLabelText);
-            }
-            mineFieldContainer.add(jLabel);
-
-        }
-        return mineFieldContainer;
-    }
-
-    private Container createMinefieldButtons(int fieldsNumber, int level, int mineFieldXdimension, int mineFieldYdimension) {
+//    private Container createMinefieldButtons(int fieldsNumber, int level, int mineFieldXdimension, int mineFieldYdimension, ImageIconDao mineIconDao) {
+private Container createMinefieldButtons(int fieldsNumber, int level, int mineFieldXdimension, int mineFieldYdimension) {
         Container mineFieldContainer = getContentPane();
         mineFieldContainer.setLayout(new GridLayout(mineFieldXdimension, mineFieldYdimension));
 

@@ -18,7 +18,6 @@ public class MinefieldButtonAction implements ActionListener {
 
     public MinefieldButtonAction(SingleField singleField, JToggleButton button, String iconFilename) {
         this.singleField = singleField;
-//        this.jButton = jButton;
         this.button = button;
 
         this.iconFilename = iconFilename;
