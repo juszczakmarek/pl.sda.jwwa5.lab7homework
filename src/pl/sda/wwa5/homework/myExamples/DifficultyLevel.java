@@ -1,9 +1,9 @@
 package pl.sda.wwa5.homework.myExamples;
 
 public enum DifficultyLevel {
-    EASY(5),
-    MEDIUM(10),
-    HARD(15);
+    EASY(10),
+    MEDIUM(20),
+    HARD(40);
 
     int mines;
 

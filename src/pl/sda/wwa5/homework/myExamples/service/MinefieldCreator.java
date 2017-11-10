@@ -1,6 +1,6 @@
 package pl.sda.wwa5.homework.myExamples.service;
 
-import pl.sda.wwa5.homework.myExamples.SingleField;
+import pl.sda.wwa5.homework.myExamples.minefield.SingleField;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,14 +9,14 @@ import java.util.Random;
 public class MinefieldCreator {
 
     public List<SingleField> createMinefield(int xDimension, int yDimension, int numberOfMines) {
-        //TODO This method should be moved to class MinefieldCreator
 
         List<SingleField> localMinefield = new ArrayList<>();
+        Random random = new Random();
 
         int minesLeft=numberOfMines;
 
         for (int i=0;i<(xDimension*yDimension);i++) {
-            boolean hasMine = assignMineRandomly(minesLeft);
+            boolean hasMine = assignMineRandomly(minesLeft, random.nextBoolean());
             if (hasMine) {
                 minesLeft = updateNumberOfMines(minesLeft);
             }
@@ -43,9 +43,8 @@ public class MinefieldCreator {
         return localMinefield;
     }
 
-    public boolean assignMineRandomly(int minesLeft) {
-        Random random = new Random();
-        return ((minesLeft>0) && random.nextBoolean());
+    public boolean assignMineRandomly(int minesLeft, boolean random) {
+        return (minesLeft > 0) && random;
     }
 
     private int topLeft(List<Integer> parametersToBeVerified) {
@@ -139,14 +138,23 @@ public class MinefieldCreator {
         return neigbhoursList;
     }
 
+    private int getFieldRowNumber(int xDimension, int yDimension, int verifiedFieldIndex) {
+        return verifiedFieldIndex/xDimension;
+    }
+
+    private int getFieldColNumber(int xDimension, int yDimension, int verifiedFieldIndex) {
+        int verifiedFieldRowNumber = getFieldRowNumber(xDimension,yDimension,verifiedFieldIndex);
+        return verifiedFieldIndex-(verifiedFieldRowNumber*xDimension);
+    }
+
     public boolean neighbourExist(List<Integer> parametersToBeVerified, int verifiedFieldIndex) {
 
         int xDimension = parametersToBeVerified.get(0);
         int yDimension = parametersToBeVerified.get(1);
         int fieldIndex = parametersToBeVerified.get(2);
 
-        int verifiedFieldRowNumber=verifiedFieldIndex/xDimension;
-        int verifiedFieldColNumber=verifiedFieldIndex-(verifiedFieldRowNumber*xDimension);
+        int verifiedFieldRowNumber=getFieldRowNumber(xDimension,yDimension,fieldIndex);
+        int verifiedFieldColNumber=getFieldColNumber(xDimension,yDimension,fieldIndex);
 
         int fieldRowNumber=fieldIndex/xDimension;
         int fieldColNumber=fieldIndex-(fieldRowNumber*xDimension);

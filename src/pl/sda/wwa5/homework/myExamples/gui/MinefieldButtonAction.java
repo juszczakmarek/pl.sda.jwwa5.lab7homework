@@ -1,6 +1,6 @@
 package pl.sda.wwa5.homework.myExamples.gui;
 
-import pl.sda.wwa5.homework.myExamples.SingleField;
+import pl.sda.wwa5.homework.myExamples.minefield.SingleField;
 
 import javax.swing.*;
 import java.awt.*;

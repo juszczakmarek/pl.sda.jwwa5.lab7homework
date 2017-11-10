@@ -1,5 +1,6 @@
-package pl.sda.wwa5.homework.myExamples;
+package pl.sda.wwa5.homework.myExamples.minefield;
 
+import pl.sda.wwa5.homework.myExamples.DifficultySettings;
 import pl.sda.wwa5.homework.myExamples.service.MinefieldCreator;
 
 import java.util.List;
@@ -12,10 +13,10 @@ public class Minefield {
     private List<SingleField> minefield;
     private MinefieldCreator minefieldCreator;
 
-    public Minefield(int xDimension, int yDimension, DifficultyLevel difficultyLevel, MinefieldCreator minefieldCreator) {
-        this.xDimension = xDimension;
-        this.yDimension = yDimension;
-        this.numberOfMines = difficultyLevel.getMinesNumber();
+    public Minefield(DifficultySettings difficultySettings, MinefieldCreator minefieldCreator) {
+        this.xDimension = difficultySettings.getxDimension();
+        this.yDimension = difficultySettings.getyDimension();
+        this.numberOfMines = difficultySettings.getNumberOfMines();
         this.minefieldCreator = minefieldCreator;
         this.minefield = minefieldCreator.createMinefield(xDimension,yDimension,numberOfMines);
         this.minefield = minefieldCreator.updateNumberOfMinesOnNeighbouringFields(xDimension,yDimension,this.minefield);

@@ -1,12 +1,10 @@
 package pl.sda.wwa5.homework.myExamples.gui;
 
-import pl.sda.wwa5.homework.myExamples.DifficultyLevel;
-import pl.sda.wwa5.homework.myExamples.Minefield;
+import pl.sda.wwa5.homework.myExamples.DifficultySettings;
+import pl.sda.wwa5.homework.myExamples.minefield.Minefield;
 
-import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
-import java.io.IOException;
 
 public class MineFieldGUI extends JFrame {
 
@@ -16,11 +14,11 @@ public class MineFieldGUI extends JFrame {
     private int level;
     private Minefield minefield;
 
-    public MineFieldGUI(int mineFieldXdimension, int mineFieldYdimension, DifficultyLevel difficultyLevel, Minefield minefield) throws HeadlessException {
-        this.mineFieldXdimension = mineFieldXdimension;
-        this.mineFieldYdimension = mineFieldYdimension;
+    public MineFieldGUI(DifficultySettings difficultySettings, Minefield minefield) throws HeadlessException {
+        this.mineFieldXdimension = difficultySettings.getxDimension();
+        this.mineFieldYdimension = difficultySettings.getyDimension();
         this.numberOfFields = mineFieldXdimension * mineFieldYdimension;
-        this.level = difficultyLevel.getMinesNumber();
+        this.level = difficultySettings.getNumberOfMines();
         this.minefield = minefield;
         generateMinefieldGUI(this.mineFieldXdimension,this.mineFieldYdimension);
     }

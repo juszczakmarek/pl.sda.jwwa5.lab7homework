@@ -2,10 +2,11 @@ package pl.sda.wwa5.homework.myExamples.service;
 
 import org.junit.Before;
 import org.junit.Test;
-import pl.sda.wwa5.homework.myExamples.SingleField;
+import pl.sda.wwa5.homework.myExamples.minefield.SingleField;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 import static org.junit.Assert.*;
 
@@ -20,14 +21,17 @@ public class MinefieldCreatorTest {
     @Test
     public void assignMineRandomlyNoMinesLeft() throws Exception {
          boolean hasMine;
-         hasMine = minefieldCreator.assignMineRandomly(0);
+         boolean randomBoolenSetAsTrue=true;
+         hasMine = minefieldCreator.assignMineRandomly(0, randomBoolenSetAsTrue);
          assertFalse(hasMine);
     }
 
     @Test
     public void assignMineRandomly() throws Exception {
          boolean hasMine;
-         hasMine = minefieldCreator.assignMineRandomly(0);
+         boolean randomBoolen = new Random().nextBoolean();
+
+         hasMine = minefieldCreator.assignMineRandomly(0,randomBoolen);
          assertTrue(hasMine==true || hasMine==false);
     }
 

@@ -23,11 +23,6 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/MinesweeperRunner.java">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/gui/MainPane.java">
           <value>
             <set />
@@ -93,21 +88,6 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/importedExamples/RunnerExamples.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/importedExamples/examples/ExamplesRunner.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/DifficultyLevel.java">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/Minefield.java">
           <value>
             <set />
@@ -118,37 +98,12 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MainMenu.java">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MineField.java">
           <value>
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MineFieldButton.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MineFieldGUI.java">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MineSweeperGameWindow.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MinefieldButtonAction.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/gui/MinesweeperWindowsCreator.java">
           <value>
             <set />
           </value>
@@ -188,22 +143,12 @@
             <set />
           </value>
         </entry>
-        <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/service/MinefieldCreator.java">
-          <value>
-            <set />
-          </value>
-        </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/service/MinefieldSingleField.java">
           <value>
             <set />
           </value>
         </entry>
         <entry key="$PROJECT_DIR$/src/pl/sda/wwa5/homework/myExamples/service/SingleField.java">
-          <value>
-            <set />
-          </value>
-        </entry>
-        <entry key="$PROJECT_DIR$/test/pl/sda/wwa5/homework/myExamples/service/MinefieldCreatorTest.java">
           <value>
             <set />
           </value>

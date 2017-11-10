@@ -1,4 +1,4 @@
-package pl.sda.wwa5.homework.myExamples;
+package pl.sda.wwa5.homework.myExamples.minefield;
 
 import java.util.ArrayList;
 
